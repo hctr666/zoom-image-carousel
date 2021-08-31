@@ -1,0 +1,73 @@
+body {
+  margin: 15px;
+}
+
+[role="button"] {
+  cursor: pointer;
+}
+
+[role="button"]:focus {
+  outline: solid 2px blue;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.ProductCarousel {
+}
+
+.ProductImage {
+  /* position: relative; */
+}
+
+.ProductZoomImage {
+  /* position: relative; */
+  display: block;
+  pointer-events: none;
+}
+
+.ProductImage__Wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.ProductImage__ZoomWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ProductCarousel__Mask {
+  width: 300px;
+  /* position: relative; */
+}
+
+.ProductCarousel__Wrapper {
+  display: flex;
+  /* overflow: hidden; */
+}
+
+.ProductCarousel__Navigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ProductCarousel__Navigation__Button {
+  outline: none;
+  border: 0;
+  padding: 10px;
+}
+
+.ProductCarousel__Thumbnails {
+  display: flex;
+}
+
+.ProductCarousel__Thumbnails__Thumbnail {
+  margin-right: 10px;
+}
+
+.ProductCarousel__Thumbnails__Thumbnail.active {
+  outline: solid 2px blue;
+}
