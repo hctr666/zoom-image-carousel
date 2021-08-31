@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import ProductImage from "./ProductImage/ProductImage";
+import ProductImage from "./Image/Image";
 
 const createImageUrl = ({ width, height, lock }) => {
   return `https://loremflickr.com/${width}/${height}?lock=${lock}`;
