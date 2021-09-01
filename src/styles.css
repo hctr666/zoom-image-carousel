@@ -15,15 +15,7 @@ body {
   text-align: center;
 }
 
-.ProductCarousel {
-}
-
-.ProductImage {
-  /* position: relative; */
-}
-
 .ProductZoomImage {
-  /* position: relative; */
   display: block;
   pointer-events: none;
 }
@@ -41,12 +33,11 @@ body {
 
 .ProductCarousel__Mask {
   width: 300px;
-  /* position: relative; */
+  overflow: hidden;
 }
 
 .ProductCarousel__Wrapper {
   display: flex;
-  /* overflow: hidden; */
 }
 
 .ProductCarousel__Navigation {
