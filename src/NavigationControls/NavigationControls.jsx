@@ -12,10 +12,10 @@ const NavigationControls = ({
   const isLast = activeIndex === totalItems - 1;
 
   return (
-    <div className="ProductCarousel__Navigation">
+    <div className="Carousel__Navigation">
       {!isFirst && (
         <button
-          className="ProductCarousel__Navigation__Button"
+          className="Carousel__Navigation__Button"
           onClick={onPreviousClick}
           type="button"
         >
@@ -24,7 +24,7 @@ const NavigationControls = ({
       )}
       {!isLast && (
         <button
-          className="ProductCarousel__Navigation__Button"
+          className="Carousel__Navigation__Button"
           onClick={onNextClick}
           type="button"
         >

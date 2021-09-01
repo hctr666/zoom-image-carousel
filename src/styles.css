@@ -1,5 +1,5 @@
 body {
-  margin: 15px;
+  margin: 0;
 }
 
 [role="button"] {
@@ -15,50 +15,34 @@ body {
   text-align: center;
 }
 
-.ProductZoomImage {
-  display: block;
-  pointer-events: none;
-}
-
-.ProductImage__Wrapper {
-  position: relative;
-  overflow: hidden;
-}
-
-.ProductImage__ZoomWrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.ProductCarousel__Mask {
+.Carousel__Mask {
   width: 300px;
   overflow: hidden;
 }
 
-.ProductCarousel__Wrapper {
+.Carousel__Wrapper {
   display: flex;
 }
 
-.ProductCarousel__Navigation {
+.Carousel__Navigation {
   display: flex;
   justify-content: space-between;
 }
 
-.ProductCarousel__Navigation__Button {
+.Carousel__Navigation__Button {
   outline: none;
   border: 0;
   padding: 10px;
 }
 
-.ProductCarousel__Thumbnails {
+.Carousel__Thumbnails {
   display: flex;
 }
 
-.ProductCarousel__Thumbnails__Thumbnail {
+.Carousel__Thumbnails__Thumbnail {
   margin-right: 10px;
 }
 
-.ProductCarousel__Thumbnails__Thumbnail.active {
+.Carousel__Thumbnails__Thumbnail.active {
   outline: solid 2px blue;
 }

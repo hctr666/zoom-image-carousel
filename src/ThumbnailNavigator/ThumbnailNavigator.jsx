@@ -1,17 +1,17 @@
 import React from "react";
 
-import { createImageUrl, classnames } from "./helpers";
+import { createImageUrl, classnames } from "../helpers";
 
 const ThumbnailNavigator = ({ items, activeIndex, onChange }) => {
   if (!items?.length) return null;
 
   const getThumbnailClassname = (idx) =>
-    classnames("ProductCarousel__Thumbnails__Thumbnail", {
+    classnames("Carousel__Thumbnails__Thumbnail", {
       active: idx === activeIndex
     });
 
   return (
-    <div className="ProductCarousel__Thumbnails">
+    <div className="Carousel__Thumbnails">
       {items.length > 0 &&
         items.map((_, idx) => {
           return (

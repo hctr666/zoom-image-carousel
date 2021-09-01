@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-import Image from "./Image/Image";
-import NavigationControls from "./NavigationControls";
-import ThumbnailNavigator from "./ThumbnailNavigator";
+import Image from "../Image/Image";
+import NavigationControls from "../NavigationControls/NavigationControls";
+import ThumbnailNavigator from "../ThumbnailNavigator/ThumbnailNavigator";
 
-import { createImageUrl } from "./helpers";
+import { createImageUrl } from "../helpers";
 
-function ProductCarousel(props) {
-  const { products, size } = props;
+function Carousel(props) {
+  const { items, size } = props;
   const [activeIdx, setActiveIdx] = useState(0);
 
   const handleNextButtonClick = () => {
@@ -23,20 +23,20 @@ function ProductCarousel(props) {
   };
 
   return (
-    <div className="ProductCarousel">
-      <div className="ProductCarousel__Mask">
-        <div className="ProductCarousel__Wrapper">
+    <div className="Carousel">
+      <div className="Carousel__Mask">
+        <div className="Carousel__Wrapper">
           <Image
-            id={products[activeIdx]}
+            id={items[activeIdx]}
             src={createImageUrl({
               width: size,
               height: size,
-              lock: products[activeIdx]
+              lock: items[activeIdx]
             })}
             zoomSrc={createImageUrl({
               width: size * 2,
               height: size * 2,
-              lock: products[activeIdx]
+              lock: items[activeIdx]
             })}
             width={size}
             height={size}
@@ -44,12 +44,12 @@ function ProductCarousel(props) {
         </div>
         <NavigationControls
           activeIndex={activeIdx}
-          totalItems={products.length}
+          totalItems={items.length}
           onPreviousClick={handlePrevButtonClick}
           onNextClick={handleNextButtonClick}
         />
         <ThumbnailNavigator
-          items={products}
+          items={items}
           activeIndex={activeIdx}
           onChange={handleThumbnailChange}
         />
@@ -58,4 +58,4 @@ function ProductCarousel(props) {
   );
 }
 
-export default ProductCarousel;
+export default Carousel;
