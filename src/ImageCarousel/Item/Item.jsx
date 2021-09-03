@@ -1,13 +1,13 @@
-import React, { useRef, useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import React, { useRef, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 const styles = {
   wrapper: {
-    position: "relative",
-    overflow: "hidden"
+    position: 'relative',
+    overflow: 'hidden'
   },
   zoomImgWrapper: {
-    position: "absolute",
+    position: 'absolute',
     top: 0,
     left: 0
   }
@@ -27,7 +27,7 @@ const useElementPosition = (element) => {
 };
 
 const useTransform = ({ mouseX, mouseY }) => {
-  const [transform, setTransform] = useState("matrix(1, 0, 0, 1, 0, 0)");
+  const [transform, setTransform] = useState('matrix(1, 0, 0, 1, 0, 0)');
 
   useEffect(() => {
     setTransform(`matrix(1, 0, 0, 1, ${-mouseX - 1}, ${-mouseY - 1})`);
@@ -36,13 +36,9 @@ const useTransform = ({ mouseX, mouseY }) => {
   return transform;
 };
 
-const ProductImage = ({
-  src,
-  zoomSrc,
-  zoomEnabled,
-  classNames,
-  ...imgProps
-}) => {
+const Item = ({ imageProps, zoomEnabled, classNames, size }) => {
+  const { src, zoomSrc, alt } = imageProps;
+
   const [isZoomActive, setIsZoomActive] = useState(false);
   const [mouseX, setMouseX] = useState(0);
   const [mouseY, setMouseY] = useState(0);
@@ -73,6 +69,9 @@ const ProductImage = ({
   };
 
   const handleImageMouseMove = (e) => {
+    if (!isZoomActive) {
+      setIsZoomActive(true);
+    }
     const { x, y } = currentMousePosition(e);
     setMouseX(x);
     setMouseY(y);
@@ -92,18 +91,18 @@ const ProductImage = ({
       ref={wrapperRef}
       style={{
         ...styles.wrapper,
-        height: imgProps.height,
-        width: imgProps.width
+        height: size,
+        width: size
       }}
       {...getZoomMouseEventProps()}
     >
-      <img src={src} alt={imgProps.alt} {...imgProps} />
+      <img src={src} alt={alt} width={size} height={size} />
       {zoomEnabled && isZoomActive && (
         <div style={styles.zoomImgWrapper}>
           <img
-            alt={imgProps.alt}
-            width={imgProps.width * 2}
-            height={imgProps.height * 2}
+            alt={alt}
+            width={size * 2}
+            height={size * 2}
             style={{ transform }}
             src={zoomSrc}
           />
@@ -113,17 +112,21 @@ const ProductImage = ({
   );
 };
 
-ProductImage.defaultProps = {
-  alt: "Product image",
+Item.defaultProps = {
+  imageProps: {
+    alt: 'Product image'
+  },
   zoomEnabled: true
 };
 
-ProductImage.propTypes = {
-  src: PropTypes.string.isRequired,
-  zoomSrc: PropTypes.string,
+Item.propTypes = {
   zoomEnabled: PropTypes.bool,
-  width: PropTypes.number.isRequired,
-  height: PropTypes.number.isRequired
+  size: PropTypes.number.isRequired,
+  imageProps: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+    zoomSrc: PropTypes.string,
+    alt: PropTypes.string
+  })
 };
 
-export default ProductImage;
+export default Item;

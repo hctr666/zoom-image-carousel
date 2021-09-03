@@ -1,4 +1,6 @@
-import React from "react";
+import React from 'react';
+import IconArrowRight from '../../icons/IconArrowRight';
+import IconArrowLeft from '../../icons/IconArrowLeft';
 
 const NavigationControls = ({
   activeIndex,
@@ -12,23 +14,25 @@ const NavigationControls = ({
   const isLast = activeIndex === totalItems - 1;
 
   return (
-    <div className="Carousel__Navigation">
+    <div className="ImageCarousel__Navigation">
       {!isFirst && (
         <button
-          className="Carousel__Navigation__Button"
+          className="ImageCarousel__Navigation__Button ImageCarousel__Navigation__ButtonPrev"
           onClick={onPreviousClick}
           type="button"
+          aria-label="Go to previous item"
         >
-          Prev
+          <IconArrowLeft />
         </button>
       )}
       {!isLast && (
         <button
-          className="Carousel__Navigation__Button"
+          className="ImageCarousel__Navigation__Button ImageCarousel__Navigation__ButtonNext"
           onClick={onNextClick}
           type="button"
+          aria-label="Go to next item"
         >
-          Next
+          <IconArrowRight />
         </button>
       )}
     </div>

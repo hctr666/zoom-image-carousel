@@ -2,11 +2,15 @@ body {
   margin: 0;
 }
 
-[role="button"] {
+button {
   cursor: pointer;
 }
 
-[role="button"]:focus {
+[role='button'] {
+  cursor: pointer;
+}
+
+[role='button']:focus {
   outline: solid 2px blue;
 }
 
@@ -15,34 +19,67 @@ body {
   text-align: center;
 }
 
-.Carousel__Mask {
-  width: 300px;
-  overflow: hidden;
-}
-
-.Carousel__Wrapper {
+.ImageViewerCarousel {
   display: flex;
 }
 
-.Carousel__Navigation {
+.ImageCarousel__Mask {
+  position: relative;
+  overflow: hidden;
+}
+
+.ImageCarousel__Wrapper {
+  display: flex;
+}
+
+.ImageCarousel__Navigation {
   display: flex;
   justify-content: space-between;
 }
 
-.Carousel__Navigation__Button {
-  outline: none;
-  border: 0;
-  padding: 10px;
-}
-
-.Carousel__Thumbnails {
+.ImageCarousel__Navigation__Button {
+  position: absolute;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  width: 3em;
+  height: 3em;
+  top: 50%;
+  border-radius: 3em;
+  transform: translateY(-50%);
 }
 
-.Carousel__Thumbnails__Thumbnail {
-  margin-right: 10px;
+.ImageCarousel__Navigation__Button.ImageCarousel__Navigation__ButtonNext {
+  right: 8px;
 }
 
-.Carousel__Thumbnails__Thumbnail.active {
+.ImageCarousel__Navigation__Button.ImageCarousel__Navigation__ButtonPrev {
+  left: 8px;
+}
+
+.ThumbnailCarousel {
+  position: relative;
+  margin-left: 10px;
+}
+
+.ThumbnailCarousel__ScrollContent {
+  display: flex;
+  position: absolute;
+  overflow: hidden scroll;
+}
+
+.ThumbnailCarousel__Wrapper {
+}
+
+.ThumbnailCarousel__Thumbnail {
+  margin-bottom: 2px;
+}
+
+.ThumbnailCarousel__Thumbnail:last-child {
+  margin-bottom: 0;
+}
+
+.ThumbnailCarousel__Thumbnail.active {
   outline: solid 2px blue;
 }

@@ -1,7 +1,3 @@
-export const createImageUrl = ({ width, height, lock }) => {
-  return `https://loremflickr.com/${width}/${height}?lock=${lock}`;
-};
-
 export const classnames = (baseClass, variantClassMap = {}) => {
   const classes = Object.keys(variantClassMap)
     .reduce(
@@ -13,7 +9,7 @@ export const classnames = (baseClass, variantClassMap = {}) => {
       },
       [baseClass]
     )
-    .join(" ");
+    .join(' ');
 
   return classes;
 };

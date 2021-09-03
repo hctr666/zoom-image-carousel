@@ -1,12 +1,12 @@
-import { StrictMode } from "react";
-import ReactDOM from "react-dom";
+import { StrictMode } from 'react';
+import ReactDOM from 'react-dom';
 
-import Sample from "./Sample";
+import ImageViewerCarousel from './ImageViewerCarousel';
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root');
 ReactDOM.render(
   <StrictMode>
-    <Sample />
+    <ImageViewerCarousel />
   </StrictMode>,
   rootElement
 );
