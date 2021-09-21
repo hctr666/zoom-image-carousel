@@ -1,3 +1,4 @@
+import React from 'react';
 import Icon from './Icon';
 
 const IconArrowRight = () => (
@@ -15,7 +16,7 @@ const IconArrowRight = () => (
         fillRule="evenodd"
         clipRule="evenodd"
         d="M9 13.887l5-5V8.18l-5-5-.707.707 4.146 4.147H2v1h10.44L8.292 13.18l.707.707z"
-      ></path>
+      />
     </svg>
   </Icon>
 );

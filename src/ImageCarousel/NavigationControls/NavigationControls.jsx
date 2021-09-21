@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import IconArrowRight from '../../icons/IconArrowRight';
 import IconArrowLeft from '../../icons/IconArrowLeft';
 
@@ -37,6 +39,18 @@ const NavigationControls = ({
       )}
     </div>
   );
+};
+
+NavigationControls.defaultProps = {
+  onPreviousClick: () => {},
+  onNextClick: () => {},
+};
+
+NavigationControls.propTypes = {
+  activeIndex: PropTypes.number.isRequired,
+  totalItems: PropTypes.number.isRequired,
+  onPreviousClick: PropTypes.func,
+  onNextClick: PropTypes.func
 };
 
 export default NavigationControls;

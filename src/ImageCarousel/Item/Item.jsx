@@ -36,7 +36,7 @@ const useTransform = ({ mouseX, mouseY }) => {
   return transform;
 };
 
-const Item = ({ imageProps, zoomEnabled, classNames, size }) => {
+const Item = ({ imageProps, zoomEnabled, size }) => {
   const { src, zoomSrc, alt } = imageProps;
 
   const [isZoomActive, setIsZoomActive] = useState(false);

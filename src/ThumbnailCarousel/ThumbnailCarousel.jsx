@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { useGlobalContext } from '../Context';
 
@@ -10,10 +11,11 @@ const ThumbnailCarousel = ({ data, size }) => {
   const { state, dispatch } = useGlobalContext();
   const { currentIndex } = state;
 
-  const getThumbnailClassname = (idx) =>
+  const getThumbnailClassname = (idx) => (
     classnames('ThumbnailCarousel__Thumbnail', {
       active: idx === currentIndex
-    });
+    })
+  );
 
   const handleThumbnailClick = (index) => {
     dispatch({ type: 'SET_CURRENT_INDEX', currentIndex: index });
@@ -30,6 +32,7 @@ const ThumbnailCarousel = ({ data, size }) => {
       className="ThumbnailCarousel"
     >
       <button
+        type="button"
         style={{
           position: 'absolute',
           top: 5,
@@ -52,11 +55,12 @@ const ThumbnailCarousel = ({ data, size }) => {
         className="ThumbnailCarousel__ScrollContent"
       >
         <div className="ThumbnailCarousel__Wrapper">
-          {data.length > 0 &&
+          {data.length > 0 && (
             data.map(({ alt, thumbnail }, idx) => {
+              const key = `thumbnail${idx}`;
               return (
                 <div
-                  key={`thumbnail${idx}`}
+                  key={key}
                   tabIndex={0}
                   className={getThumbnailClassname(idx)}
                   onClick={() => handleThumbnailClick(idx)}
@@ -74,10 +78,12 @@ const ThumbnailCarousel = ({ data, size }) => {
                   />
                 </div>
               );
-            })}
+            })
+          )}
         </div>
       </div>
       <button
+        type="button"
         style={{
           position: 'absolute',
           bottom: 5,
@@ -94,6 +100,14 @@ const ThumbnailCarousel = ({ data, size }) => {
       </button>
     </div>
   );
+};
+
+ThumbnailCarousel.propTypes = {
+  data: PropTypes.arrayOf({
+    alt: PropTypes.string,
+    thumbnail: PropTypes.string
+  }).isRequired,
+  size: PropTypes.number.isRequired
 };
 
 export default ThumbnailCarousel;

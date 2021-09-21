@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Item from './Item/Item';
 import NavigationControls from './NavigationControls/NavigationControls';
-import { useGlobalContext } from './../Context';
+import { useGlobalContext } from '../Context';
 
 function ImageCarousel({ data, size }) {
   const { state, dispatch } = useGlobalContext();
@@ -40,5 +41,14 @@ function ImageCarousel({ data, size }) {
     </div>
   );
 }
+
+ImageCarousel.propTypes = {
+  data: PropTypes.arrayOf({
+    main: PropTypes.string,
+    zoom: PropTypes.string,
+    alt: PropTypes.string
+  }).isRequired,
+  size: PropTypes.number.isRequired
+};
 
 export default ImageCarousel;

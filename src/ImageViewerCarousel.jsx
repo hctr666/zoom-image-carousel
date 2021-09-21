@@ -1,4 +1,4 @@
-import { useReducer, useState } from 'react';
+import React, { useReducer } from 'react';
 
 import ImageCarousel from './ImageCarousel/ImageCarousel';
 import ThumbnailCarousel from './ThumbnailCarousel/ThumbnailCarousel';
@@ -10,7 +10,7 @@ import './styles.css';
 
 const carouselSize = 400;
 
-export default function ImageViewerCarousel() {
+const ImageViewerCarousel = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
@@ -21,4 +21,6 @@ export default function ImageViewerCarousel() {
       </div>
     </GlobalContext.Provider>
   );
-}
+};
+
+export default ImageViewerCarousel;

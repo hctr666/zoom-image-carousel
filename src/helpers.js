@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 export const classnames = (baseClass, variantClassMap = {}) => {
   const classes = Object.keys(variantClassMap)
     .reduce(
